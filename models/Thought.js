@@ -1,5 +1,9 @@
 const { Schema, model, Types } = require('mongoose');
 
+const moment = require('moment');
+
+let createdAt = moment().format('LLLL');
+
 const ReactionSchema = new Schema(
     {
         reactionId: {
@@ -8,17 +12,22 @@ const ReactionSchema = new Schema(
         },
         reactionBody: {
             type: String,
-            required: true,
-            280 character maximum 
+            required: 'reaction is required',
+            maxlength: 280
         },
         username: {
             type: String,
-            required: true
+            required: 'Username is required'
         },
         createdAt: {
             type: Date,
             default: Date.now,
-            get: Use a getter method to format the timestamp on query 
+           //get: createdAtVal => dateFormat(createdAtVal)
+        }
+    },
+    {
+        toJSON: {
+            getters: true
         }
     }
 )
@@ -28,27 +37,42 @@ const ThoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
-            required: true,
-            Must be between 1 and 280 characters 
+            minlength: 1,
+            maxlength: 280,           
+            required: 'text is required',
+
         },
         createdAt: {
             type: Date,
             default: Date.now,
-            get: Use a getter method to format the timestamp on query 
+            //get: createdAtVal => dateFormat(createdAtVal)
         },
         username: {
             type: String,
-            required: true
+            required: 'Username is required'
         },
-        reactions: {
-            (These are like replies) Array of nested documents created with the reactionSchema
-        }
+        userId: {
+            type: String,
+            required: true
+
+        },
+        reactions: 
+        [ReactionSchema]
+        },
+        {
+            toJSON: {
+                virtuals: true,
+                getters: true
+            },
+            id: false
     }
 );
 
-Schema Settings 
 
-Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query. 
+ThoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
+
+});
 
 const Thought = model('Thought', ThoughtSchema);
 

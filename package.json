@@ -1,6 +1,26 @@
 {
   "dependencies": {
     "express": "^4.17.3",
+    "moment": "^2.29.2",
     "mongoose": "^6.2.8"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "keep-up",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaira222/keep-up.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaira222/keep-up/issues"
+  },
+  "homepage": "https://github.com/zaira222/keep-up#readme"
 }
