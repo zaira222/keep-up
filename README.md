@@ -1,7 +1,7 @@
 # Keep Up
 
 ## Description
-This application will be used for a future social media networking app called Keep Up. What are app wants to accomplish is for it to have a lot of different information coming into it at once. To be able to show that it has a higher capacity to receive unstructured data. As of right now this application focuses on the backend. It is able to receive users and thoughts information which can be viewed through insomnia.
+This application will be used for a future social media networking app called Keep Up. What are app wants to accomplish is for it to have a lot of different information coming into it at once. To be able to show that it has a higher capacity to receive unstructured data. As of right now this application focuses on the backend. It is able to receive users and thoughts information which can be viewed through insomnia. As well as the users and thoughts the app is also able to add friends and reactions.
 
 ## Installation 
 * git clone or download file
